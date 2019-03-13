@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to MessageSocketService!');
+    expect(page.getTitleText()).toEqual('Welcome to realtime-chat-frontend!');
   });
 
   afterEach(async () => {
