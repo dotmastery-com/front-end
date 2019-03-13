@@ -1,0 +1,37 @@
+
+mat-card.message-card.mat-card {
+  height:600px;
+}
+
+
+mat-card-footer.message-footer.mat-card-footer {
+
+  position:absolute;
+  bottom:30px;
+  width:100%;
+}
+
+
+section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+
+.message-full-width {
+  background-color: white;
+  padding: 5px 5px 5px 10px;
+  width: 80%;
+}
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+
+#messages { list-style-type: none; margin: 0; padding: 0; }
+#messages li { padding: 5px 10px; }
+#messages li:nth-child(odd) { background: #eee; }
