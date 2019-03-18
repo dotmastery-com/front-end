@@ -57,7 +57,7 @@ export class DataService {
         errorMessage = `Invalid username or password`;
       }
        else {
-         errorMessage = `Unexpected error: ${error.error.message}`;
+         errorMessage = `Unexpected error.`;
       }
 
     }
