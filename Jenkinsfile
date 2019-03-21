@@ -5,6 +5,10 @@ pipeline {
             args '-p 3000:3000' 
         }
     }
+
+    environment {
+        registry = "dotmastery/frot-end"
+    }
     stages {
 
         stage('Build') { 
@@ -16,9 +20,10 @@ pipeline {
         stage('Build and Push Docker Image') {
 
           steps {
-
-            def image = docker.build("dotmastery/frontend")
-            image.push('latest')
+            script {
+                dockerImage = docker.build registry +"$BUILD_NUMBER"
+                dockerImage.push()
+            }    
 
          }
         }
