@@ -28,7 +28,7 @@ COPY nginx/default.conf /etc/nginx/conf.d/
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
-RUN chmod -R 777 /var/log/nginx /var/cache/nginx/ && chmod 644 /etc/nginx/*
+RUN chmod -R 777 /var/log/nginx /var/cache/nginx/ && chmod 644 /etc/nginx/* && chmod 777 /etc/nginx/conf.d/default.conf
 
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=builder /ng-app/dist /usr/share/nginx/html
