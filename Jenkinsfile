@@ -7,13 +7,6 @@ pipeline {
     }
     stages {
 
-        stage('Initialize'){
-            steps {
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-            }
-        }
-
         stage('Build') { 
             steps {
                 sh 'npm install' 
@@ -23,8 +16,10 @@ pipeline {
         stage('Build and Push Docker Image') {
 
           steps {
-            sh 'docker build -t dotmastery/frontend .'
-            sh 'docker push dotmastery/frontend'
+
+            def image = docker.build("dotmastery/frontend")
+            image.push('latest')
+
          }
         }
 
