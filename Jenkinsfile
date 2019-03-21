@@ -5,9 +5,12 @@ pipeline {
             args '-p 3000:3000' 
         }
     }
+  tools {
+        docker 'docker' 
+    }
 
     environment {
-        registry = "dotmastery/frot-end"
+        registry = "dotmastery/front-end"
     }
     stages {
 
