@@ -12,8 +12,10 @@ pipeline {
 
           steps {
             script {
-                dockerImage = docker.build registry +"$BUILD_NUMBER"
-                dockerImage.push()
+                docker.withRegistry('https://registry-1.docker.io/v2/', 'Dockerhub') {
+                    dockerImage = docker.build registry +"$BUILD_NUMBER"
+                    dockerImage.push()
+                }
             }    
 
          }
