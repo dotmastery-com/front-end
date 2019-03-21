@@ -11,5 +11,15 @@ pipeline {
                 sh 'npm install' 
             }
         }
+
+    stage('Build and Push Docker Image') {
+      agent any
+      
+      steps {
+        sh 'docker build -t dotmastery/frontend .'
+        sh 'docker push dotmastery/frontend'
+      }
+    }
+
     }
 }
