@@ -5,9 +5,7 @@ pipeline {
             args '-p 3000:3000' 
         }
     }
-  tools {
-        org.jenkinsci.plugins.docker.commons.tools.DockerTool 'docker' 
-    }
+  
 
     environment {
         registry = "dotmastery/front-end"
