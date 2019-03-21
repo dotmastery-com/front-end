@@ -6,20 +6,25 @@ pipeline {
         }
     }
     stages {
+
+        stage('Initialize'){
+            def dockerHome = tool 'myDocker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
+
         stage('Build') { 
             steps {
                 sh 'npm install' 
             }
         }
 
-    stage('Build and Push Docker Image') {
-      agent any
-      
-      steps {
-        sh 'docker build -t dotmastery/frontend .'
-        sh 'docker push dotmastery/frontend'
-      }
-    }
+        stage('Build and Push Docker Image') {
+
+          steps {
+            sh 'docker build -t dotmastery/frontend .'
+            sh 'docker push dotmastery/frontend'
+         }
+        }
 
     }
 }
