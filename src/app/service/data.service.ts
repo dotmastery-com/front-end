@@ -15,8 +15,8 @@ const httpOptions = {
 })
 export class DataService {
 
-  private authUserUrl = 'http://localhost:7000/auth';
-  private registerUserUrl = 'http://localhost:7000/register';
+  private authUserUrl = 'http://myuserservice-my-jenkins.1d35.starter-us-east-1.openshiftapps.com/auth';
+  private registerUserUrl = 'http://myuserservice-my-jenkins.1d35.starter-us-east-1.openshiftapps.com/register';
 
 
   constructor(private http: HttpClient) {
