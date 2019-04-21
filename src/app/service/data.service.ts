@@ -3,7 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import {User} from "../model/user";
-
+import { EnvService } from 'src/app/service/env.service';
 
 
 const httpOptions = {
@@ -15,13 +15,13 @@ const httpOptions = {
 })
 export class DataService {
 
-  private authUserUrl = 'http://localhost:7000/auth';
-  private registerUserUrl = 'http://localhost:7000/register';
+  constructor(
+    private http: HttpClient,
+    private env: EnvService,
+    ) { }
 
-
-  constructor(private http: HttpClient) {
-  }
-
+  private authUserUrl = this.env.api.data + '/auth';
+  private registerUserUrl = this.env.api.data + '/register';
 
   authUser(user: User): Observable<User> {
 

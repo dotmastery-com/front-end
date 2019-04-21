@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { EnvService } from 'src/app/service/env.service';
 
 @Injectable()
 export class SocketService {
@@ -6,8 +7,11 @@ export class SocketService {
   private socket: WebSocket;
   private listener: EventEmitter<any> = new EventEmitter();
 
-  public constructor() {
-    this.socket = new WebSocket("ws://localhost:12345/ws");
+  public constructor(
+    private env: EnvService,
+  ) {
+
+    this.socket = new WebSocket(this.env.api.socket);
     this.socket.onopen = event => {
       this.listener.emit({"type": "open", "data": event});
     }
