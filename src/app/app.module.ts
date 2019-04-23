@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./material/material.module";
 import { HttpClientModule } from '@angular/common/http';
 import {SocketService} from "./service/socket.service";
+import { EnvServiceProvider } from './service/env.service.provider';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import {SocketService} from "./service/socket.service";
     ReactiveFormsModule,HttpClientModule
   ],
   entryComponents: [DialogUserComponent],
-  providers: [SocketService],
+  providers: [SocketService, EnvServiceProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
