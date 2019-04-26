@@ -1,7 +1,7 @@
 pipeline {
     agent none
 
-def root = tool name: 'docker', type: 'docker'
+
 
     environment {
         registry = "dotmastery/front-end"
@@ -14,6 +14,9 @@ def root = tool name: 'docker', type: 'docker'
 
           steps {
             script {
+
+                def root = tool name: 'docker', type: 'docker'
+                
                 docker.withRegistry('https://registry-1.docker.io/v2/', 'Dockerhub') {
                     dockerImage = docker.build registry
                     dockerImage.push()
