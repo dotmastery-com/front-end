@@ -1,6 +1,8 @@
 pipeline {
     agent none
 
+def root = tool name: 'docker', type: 'docker'
+
     environment {
         registry = "dotmastery/front-end"
     }
