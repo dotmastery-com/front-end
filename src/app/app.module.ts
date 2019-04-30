@@ -12,6 +12,14 @@ import { HttpClientModule } from '@angular/common/http';
 import {SocketService} from "./service/socket.service";
 import { EnvServiceProvider } from './service/env.service.provider';
 
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider
+} from 'angularx-social-login';
+
+import { getAuthServiceConfigs } from './socialloginConfig ';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,10 +30,11 @@ import { EnvServiceProvider } from './service/env.service.provider';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule,HttpClientModule
+    ReactiveFormsModule,HttpClientModule,
+    SocialLoginModule
   ],
   entryComponents: [DialogUserComponent],
-  providers: [SocketService, EnvServiceProvider],
+  providers: [SocketService, EnvServiceProvider,SocialLoginModule.initialize(getAuthServiceConfigs)],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
