@@ -6,16 +6,16 @@
 <mat-dialog-content>
   <mat-form-field>
     <input matInput name="username" placeholder="User Name" formControlName="username" required (click)="onKey($event)">
-    <mat-error *ngIf="username?.invalid">User Name Required</mat-error>
+    <mat-error *ngIf="username?.invalid" id="error-email-required">User Name Required</mat-error>
   </mat-form-field>
 
   <br/>
   <mat-form-field>
     <input matInput name="password" type="password" placeholder="Password" formControlName="password" required (click)="onKey($event)">
-    <mat-error *ngIf="password?.invalid">Password Required</mat-error>
+    <mat-error *ngIf="password?.invalid" id="error-password-required">Password Required</mat-error>
   </mat-form-field>
 
-  <mat-error *ngIf="errormessage">{{ errormessage }}</mat-error>
+  <mat-error *ngIf="errormessage" id="error-message">{{ errormessage }}</mat-error>
 
 </mat-dialog-content>
 
