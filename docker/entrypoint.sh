@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "hello"
 cp /usr/share/nginx/html/index.html /tmp/
 sed -i "s|{{{{data}}}}|$DATA_ENDPOINT|g" /tmp/index.html
 sed -i "s|{{{{socket}}}}|$SOCKET_ENDPOINT|g" /tmp/index.html

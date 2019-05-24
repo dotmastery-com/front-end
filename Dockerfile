@@ -38,11 +38,14 @@ EXPOSE 8081
 # comment user directive as master process is run as user in OpenShift anyhow
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
-# entrypoint script
-ADD ./docker/entrypoint.sh /
-RUN chmod +x /entrypoint.sh
-CMD ["/entrypoint.sh"]
 
 ## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=builder /ng-app/dist /usr/share/nginx/html
+
+# entrypoint script
+ADD ./docker/entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
 RUN chmod 664 /usr/share/nginx/html/index.html
+
+CMD ["/entrypoint.sh"]
