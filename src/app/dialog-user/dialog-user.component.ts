@@ -22,7 +22,7 @@ export class DialogUserComponent implements OnInit {
   });
   http: any;
 
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<DialogUserComponent>, private data: DataService, private socialAuthService: AuthService ) {
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<DialogUserComponent>, private data: DataService){
   }
 
   ngOnInit() {

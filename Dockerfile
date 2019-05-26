@@ -19,7 +19,7 @@ RUN npm run ng build -- --prod --output-path=dist
 
 ###RUN (sed "/ENVIRONMENT REPLACE/q" dist/index.html; cat docker/index-snippet.html; sed  "1,/ENVIRONMENT REPLACE/ d" dist/index.html) > dist/index.html
 
-RUN sed -i -e "/ENVIRONMENT REPLACE/r docker/index-snippet.html" -e "s/.*ENVIRONMENT REPLACE.*//" dist/index.html
+##RUN sed -i -e "/ENVIRONMENT REPLACE/r docker/index-snippet.html" -e "s/.*ENVIRONMENT REPLACE.*//" dist/index.html
 
 ### STAGE 2: Setup ###
 

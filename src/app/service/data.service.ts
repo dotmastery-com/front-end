@@ -17,11 +17,15 @@ export class DataService {
 
   constructor(
     private http: HttpClient,
-    private env: EnvService,
-    ) { }
+    private env: EnvService
+    ) { 
+      console.log(this.env.api.data);
+    }
 
-  private authUserUrl = this.env.api.data + '/auth';
-  private registerUserUrl = this.env.api.data + '/register';
+
+  private endpoint = this.env.api.data;  
+  private authUserUrl = this.endpoint + '/auth';
+  private registerUserUrl = this.endpoint+"/register";//this.env.api.data + '/register';
 
   authUser(user: User): Observable<User> {
 

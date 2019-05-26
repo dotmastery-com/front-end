@@ -9,7 +9,17 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- ENVIRONMENT REPLAC -->
+  <script type="text/javascript">
+    (function (window) {
+      window.__env = window.__env || {};
+
+      // API urls
+      window.__env.api = {
+        data: '{{{{data}}}}',
+        socket: 'ws://userservice-dotmastery.e4ff.pro-eu-west-1.openshiftapps.com/'
+      };
+    }(this));
+  </script>
 </head>
 <body>
   <app-root></app-root>
