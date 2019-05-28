@@ -12,6 +12,7 @@ export class SocketService {
   ) {
 
     this.socket = new WebSocket(this.env.api.socket);
+   
     this.socket.onopen = event => {
       this.listener.emit({"type": "open", "data": event});
     }

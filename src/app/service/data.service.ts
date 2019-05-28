@@ -25,7 +25,7 @@ export class DataService {
 
   private endpoint = this.env.api.data;  
   private authUserUrl = this.endpoint + '/auth';
-  private registerUserUrl = this.endpoint+"/register";//this.env.api.data + '/register';
+  private registerUserUrl = this.endpoint+"/register";
 
   authUser(user: User): Observable<User> {
 
